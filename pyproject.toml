@@ -5,12 +5,12 @@ description = ""
 authors = ["dayeonkimm <ekdyd516@gmail.com>"]
 readme = "README.md"
 
-[tool.poetry.dependencies]
+[tool.poetry.dependencies]  # 배포용
 python = "^3.12"
 django = "^5.0.6"
 
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.group.dev.dependencies] # 개발용
 black = "^24.4.2"
 isort = "^5.13.2"
 mypy = "^1.10.0"
@@ -19,3 +19,6 @@ django-stubs = "^5.0.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
