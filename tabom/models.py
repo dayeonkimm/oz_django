@@ -2,7 +2,7 @@ from django.db import models
 
 
 class BaseModel(models.Model):
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)  # audit column
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -23,3 +23,11 @@ class Article(BaseModel):
 class Like(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
+
+
+# 장고 view -> 다른 진영에서 controller (특히 spring)
+
+# view/controller -> service(장고에는 없음) -> model/entity -> database
+
+# 객체 지향 -> 책임과 역할..? : loose coupling(결합이 느슨해야 좋음)
+# 하나의 책임 역할 -> single responsible principle
