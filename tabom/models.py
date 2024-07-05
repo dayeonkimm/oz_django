@@ -25,6 +25,12 @@ class Like(BaseModel):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["user","article"], name="unique_user_article"),
+        ]
+
+
 # 장고 view -> 다른 진영에서 controller (특히 spring)
 
 # view/controller -> service(장고에는 없음) -> model/entity -> database
